@@ -22,10 +22,17 @@ const AddTodo = () => {
       return Toast.show({
         type: "error",
         text1: "Needs some value",
-        text2: "You need to write something to add",
+        text2: "You need to write something to add !",
+      });
+    } else {
+      Toast.show({
+        type: "success",
+        text1: "Successfully Added",
+        text2: "Todo added successfully !",
       });
     }
     dispatch(addTodo(text));
+
     setText("");
   };
   return (

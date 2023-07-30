@@ -9,20 +9,14 @@ import { TodoApp } from "./src/features/todos/TodoApp";
 import Toast from "react-native-toast-message";
 
 export default function App() {
-  const getToastMessage = () => {
-    Toast.show({
-      type: "success",
-      text1: "Toast Message",
-      text2: "This is the secondary text",
-    });
-  };
   return (
     <NativeBaseProvider>
       <Provider store={store}>
         <View style={styles.container}>
           <StatusBar style="dark" />
           <TodoApp />
-          <Button onPress={getToastMessage} title="Click Me" />
+          <Toast />
+          {/* <Button onPress={getToastMessage} title="Click Me" /> */}
         </View>
       </Provider>
     </NativeBaseProvider>

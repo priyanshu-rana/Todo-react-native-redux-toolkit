@@ -2,6 +2,7 @@ import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import { todo } from "./TodoSlice";
+import { Checkbox } from "native-base";
 
 interface TodoList {
   todos: todo[];
@@ -15,9 +16,12 @@ const TodoList = () => {
       <View style={todoListStyles.container}>
         <Text>Todo List</Text>
         {todos.map((todo, index) => (
-          <Text style={todoListStyles.todoText} key={todo.id}>
-            {index + 1}. {todo.text}
-          </Text>
+          <View style={todoListStyles.todoRow} key={todo.id}>
+            {/* <Checkbox value={todo.text} /> */}
+            <Text style={todoListStyles.todoText} key={todo.id}>
+              {index + 1}. {todo.text}
+            </Text>
+          </View>
         ))}
       </View>
     </ScrollView>
@@ -34,6 +38,10 @@ const todoListStyles = StyleSheet.create({
   },
   todoText: {
     margin: 4,
+  },
+  todoRow: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
 
